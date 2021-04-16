@@ -1,0 +1,69 @@
+[gd_resource type="VisualShader" load_steps=5 format=2]
+
+[sub_resource type="VisualShaderNodeColorUniform" id=1]
+uniform_name = "Albedo"
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=2]
+uniform_name = "Metalic"
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=3]
+uniform_name = "Roughness"
+
+[sub_resource type="VisualShaderNodeColorUniform" id=4]
+uniform_name = "Emission"
+
+[resource]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+uniform vec4 Albedo : hint_color;
+uniform float Metalic;
+uniform float Roughness;
+uniform vec4 Emission : hint_color;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:3
+	vec3 n_out3p0 = Albedo.rgb;
+	float n_out3p1 = Albedo.a;
+
+// ScalarUniform:4
+	float n_out4p0 = Metalic;
+
+// ScalarUniform:5
+	float n_out5p0 = Roughness;
+
+// ColorUniform:6
+	vec3 n_out6p0 = Emission.rgb;
+	float n_out6p1 = Emission.a;
+
+// Output:0
+	ALBEDO = n_out3p0;
+	METALLIC = n_out4p0;
+	ROUGHNESS = n_out5p0;
+	EMISSION = n_out6p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -174.363, 173.75 )
+nodes/fragment/0/position = Vector2( 546, 63 )
+nodes/fragment/3/node = SubResource( 1 )
+nodes/fragment/3/position = Vector2( 273, 105 )
+nodes/fragment/4/node = SubResource( 2 )
+nodes/fragment/4/position = Vector2( 252, 231 )
+nodes/fragment/5/node = SubResource( 3 )
+nodes/fragment/5/position = Vector2( 252, 294 )
+nodes/fragment/6/node = SubResource( 4 )
+nodes/fragment/6/position = Vector2( 252, 357 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0, 4, 0, 0, 2, 5, 0, 0, 3, 6, 0, 0, 5 )

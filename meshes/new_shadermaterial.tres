@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://meshes/new_visualshader.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/Albedo = Color( 0.196078, 1, 0, 1 )
+shader_param/Metalic = 1.0
+shader_param/Roughness = 0.5
+shader_param/Emission = Color( 0, 0, 0, 1 )

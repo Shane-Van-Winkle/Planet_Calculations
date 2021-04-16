@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://meshes/new_shadermaterial.tres" type="Material" id=2]
+[ext_resource path="res://meshes/new_visualshader.tres" type="Shader" id=3]
+
+[sub_resource type="SphereShape" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/Albedo = null
+shader_param/Metalic = null
+shader_param/Roughness = null
+shader_param/Emission = null
+
+[sub_resource type="SphereMesh" id=3]
+material = SubResource( 2 )
+
+[sub_resource type="Skin" id=4]
+
+[node name="Body" type="KinematicBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00390792, 0.00689864, 0.000173926 )
+mesh = SubResource( 3 )
+skin = SubResource( 4 )
+material/0 = ExtResource( 2 )
